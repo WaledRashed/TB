@@ -1634,11 +1634,11 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose")
                         resample_sr0 = gr.Slider(
                             minimum=0,
                             maximum=48000,
-                            label=i18n("后处理重采样至最终采样率，0为不进行重采样"),
+                            label=i18n("Post-processing resampling to the final sampling rate, 0 means no resampling"),
                             value=0,
                             step=1,
                             interactive=True,
-                            visible=False
+                            visible=True
                             )
                         rms_mix_rate0 = gr.Slider(
                             minimum=0,
