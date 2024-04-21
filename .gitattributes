@@ -7,3 +7,4 @@ weights/Rivet_Female.pth filter=lfs diff=lfs merge=lfs -text
 logs/Mohamed_Henedy.index filter=lfs diff=lfs merge=lfs -text
 logs/Rivet_Female.index filter=lfs diff=lfs merge=lfs -text
 weights/Optimus_Prime.pth filter=lfs diff=lfs merge=lfs -text
+logs/Optimus_Prime.index filter=lfs diff=lfs merge=lfs -text
