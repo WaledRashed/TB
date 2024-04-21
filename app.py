@@ -1538,7 +1538,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose")
                         record_button.change(fn=save_to_wav, inputs=[record_button], outputs=[input_audio0])
                         record_button.change(fn=change_choices2, inputs=[], outputs=[input_audio0])    
                     with gr.Row():
-                        with gr.Accordion('ElevenLabs / Google TTS', open=False):
+                        with gr.Accordion('ElevenLabs / Google TTS', open=False, visible=False):
                             with gr.Column():
                                 lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['ar','en','it','es','fr','pt','zh-CN','de','hi','ja'], value='en')
                                 api_box = gr.Textbox(label="Enter your API Key for ElevenLabs, or leave empty to use GoogleTTS", value='')
@@ -1729,7 +1729,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose")
                     [vc_output1, vc_output2],
                 )
                         
-            with gr.Accordion("Batch Conversion",open=False, visible=True):
+            with gr.Accordion("Batch Conversion",open=False, visible=False):
                 with gr.Row():
                     with gr.Column():
                         vc_transform1 = gr.Number(
