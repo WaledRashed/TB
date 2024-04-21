@@ -1540,7 +1540,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose")
                     with gr.Row():
                         with gr.Accordion('ElevenLabs / Google TTS', open=False):
                             with gr.Column():
-                                lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['en','it','es','fr','pt','zh-CN','de','hi','ja'], value='en')
+                                lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['ar','en','it','es','fr','pt','zh-CN','de','hi','ja'], value='en')
                                 api_box = gr.Textbox(label="Enter your API Key for ElevenLabs, or leave empty to use GoogleTTS", value='')
                                 elevenid=gr.Dropdown(label="Voice:", choices=eleven_voices)
                             with gr.Column():
@@ -1605,7 +1605,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose")
 
                     animate_button.click(fn=mouth, inputs=[size, face, vc_output2, faces], outputs=[animation, preview])
 
-                    with gr.Accordion("Advanced Options", open=False):
+                    with gr.Accordion("Advanced Options", open=True):
                         f0method0 = gr.Radio(
                             label="Optional: Change the Pitch Extraction Algorithm. Extraction methods are sorted from 'worst quality' to 'best quality'. If you don't know what you're doing, leave rmvpe.",
                             choices=["pm", "dio", "crepe-tiny", "mangio-crepe-tiny", "crepe", "harvest", "mangio-crepe", "rmvpe"], # Fork Feature. Add Crepe-Tiny
@@ -1729,7 +1729,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose")
                     [vc_output1, vc_output2],
                 )
                         
-            with gr.Accordion("Batch Conversion",open=False, visible=False):
+            with gr.Accordion("Batch Conversion",open=False, visible=True):
                 with gr.Row():
                     with gr.Column():
                         vc_transform1 = gr.Number(
