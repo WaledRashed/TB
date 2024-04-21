@@ -1,2 +1,4 @@
 ilariasuitewallpaper.jpg filter=lfs diff=lfs merge=lfs -text
 ilariaaisuite.png filter=lfs diff=lfs merge=lfs -text
+weights/Mohamed_Henedy.index filter=lfs diff=lfs merge=lfs -text
+weights/Mohamed_Henedy.pth filter=lfs diff=lfs merge=lfs -text
