@@ -1445,7 +1445,7 @@ def elevenTTS(xiapi, text, id, lang):
         aud_path = save_to_wav('./temp_eleven.mp3')
         return aud_path, aud_path
     else:
-        tts = gTTS(text, lang=lang)
+        tts = gTTS(text, lang=lang, tld='com.sa')
         tts.save('./temp_gTTS.mp3')
         aud_path = save_to_wav('./temp_gTTS.mp3')
         return aud_path, aud_path
@@ -1484,7 +1484,7 @@ def zip_downloader(model):
 with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"), title="BasetaTube RVC TTS") as app:
     with gr.Tabs():
         with gr.TabItem("Inference"):
-            gr.HTML("<table align='center' border='0' padding='100'><tr><td><img src='https://huggingface.co/spaces/Baseta/BasetaTube_RVC_TTS/blob/main/Btubel.png' width='30%' /></td><td align='center' ><h1 style='font-size:30px'>تحويل النص الى صوت عربي من اى صوت تريده <br>أشترك فى قناة بسيطة تيوب للمزيد من فيديوهات التكنولوجيا و الذكاء الاصطناعى<br><a href='https://www.youtube.com/@basetatube/?sub_confirmation=1' target='_blank'>أشترك الأن</a></h1></td></tr></table>Huggingface port by Ilaria of the Rejekt Easy GUI")     
+            gr.HTML("<table align='center' border='0' padding='10'><tr><td><img src='/file=Btubel.png' width='300' /></td><td align='center'><center><h1 style='font-size:20px'>تحويل النص الى صوت عربي من اى صوت تريده <br>أشترك فى قناة بسيطة تيوب للمزيد من فيديوهات التكنولوجيا و الذكاء الاصطناعى<br><a href='https://www.youtube.com/@basetatube/?sub_confirmation=1' target='_blank'>أشترك الأن</a></h1></center></td></tr></table>Huggingface port by Ilaria of the Rejekt Easy GUI")     
 
             # Inference Preset Row
             # with gr.Row():
@@ -1500,7 +1500,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                 refresh_button = gr.Button("Refresh", variant="primary")
                 if check_for_name() != '':
                     get_vc(sorted(names)[0])
-                vc_transform0 = gr.Number(label="درجة الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
+                vc_transform0 = gr.Number(label="درجة 1الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل \n Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
                 #clean_button = gr.Button(i18n("卸载音色省显存"), variant="primary")
                 spk_item = gr.Slider(
                     minimum=0,
@@ -1538,7 +1538,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                     with gr.Row():
                         with gr.Accordion('Google TTS', open=False, visible=True):
                             with gr.Column():
-                                lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['ar', 'ar-com.sa', 'ar-SA', 'en','it','es','fr','pt','zh-CN','de','hi','ja'], value='ar')
+                                lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['ar', 'ar-com.sa', 'en','it','es','fr','pt','zh-CN','de','hi','ja'], value='ar')
                                 api_box = gr.Textbox(label="Enter your API Key for ElevenLabs, or leave empty to use GoogleTTS", value='', visible=False)
                                 elevenid=gr.Dropdown(label="Voice:", choices=eleven_voices, visible=False)
                             with gr.Column():
