@@ -1481,12 +1481,10 @@ def zip_downloader(model):
     else:
         return f'./weights/{model}.pth', "Could not find Index file."
 
-with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose"), title="Ilaria RVC 💖") as app:
+with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"), title="BasetaTube RVC TTS") as app:
     with gr.Tabs():
         with gr.TabItem("Inference"):
-            gr.HTML("<h1>  Ilaria RVC 💖   </h1>")     
-            gr.HTML("<h10>   You can find voice models on AI Hub: https://discord.gg/aihub   </h10>")   
-            gr.HTML("<h4>  Huggingface port by Ilaria of the Rejekt Easy GUI </h4>")
+            gr.HTML("<table align='center' border='0' padding='100'><tr><td><img src='https://drive.google.com/uc?export=view&id=1i6f7b3M9MnRe1lRAFZ3rysFmEZEk-Z5_' width='300' /></td><td align='center' ><h1 style='font-size:30px'>تحويل النص الى صوت عربي من اى صوت تريده <br>أشترك فى قناة بسيطة تيوب للمزيد من فيديوهات التكنولوجيا و الذكاء الاصطناعى<br><a href='https://www.youtube.com/@basetatube/?sub_confirmation=1' target='_blank'>أشترك الأن</a></h1></td></tr></table>Huggingface port by Ilaria of the Rejekt Easy GUI")     
 
             # Inference Preset Row
             # with gr.Row():
@@ -1502,7 +1500,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="pink", secondary_hue="rose")
                 refresh_button = gr.Button("Refresh", variant="primary")
                 if check_for_name() != '':
                     get_vc(sorted(names)[0])
-                vc_transform0 = gr.Number(label="Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
+                vc_transform0 = gr.Number(label="درجة الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل<br/>Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
                 #clean_button = gr.Button(i18n("卸载音色省显存"), variant="primary")
                 spk_item = gr.Slider(
                     minimum=0,
