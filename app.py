@@ -1496,9 +1496,9 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
 
             # Other RVC stuff
             with gr.Row():
-			# Add an empty option as the default
-			sid0_choices = [''] + sorted(names)
-			sid0 = gr.Dropdown(label="1.Choose the model.", choices=sid0_choices, value=check_for_name())
+				# Add an empty option as the default
+				sid0_choices = [''] + sorted(names)
+				sid0 = gr.Dropdown(label="1.Choose the model.", choices=sid0_choices, value=check_for_name())
 
 			refresh_button = gr.Button("Refresh", variant="primary")
 			if check_for_name() != '':
