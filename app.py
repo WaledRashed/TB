@@ -1493,14 +1493,13 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
             #         label="Your preset name"
             #     )
             #     mangio_preset_save_btn = gr.Button('Save Preset', variant="primary")
-			#	  sid0 = gr.Dropdown(label="1.Choose the model.", choices=[''] + sorted(names), value=check_for_name())
 
             # Other RVC stuff
             with gr.Row():
-                sid0 = gr.Dropdown(label="1.Choose the model.", choices=[''] + sorted(names), value='')
+                sid0 = gr.Dropdown(label="1.Choose the model.", choices=sorted(names), value=check_for_name())
                 refresh_button = gr.Button("Refresh", variant="primary")
                 if check_for_name() != '':
-                    get_vc(sorted(names)[0])
+                    get_vc(sorted(names))
                 vc_transform0 = gr.Number(label="درجة الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل '\n' Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
 
                 #clean_button = gr.Button(i18n("卸载音色省显存"), variant="primary")
