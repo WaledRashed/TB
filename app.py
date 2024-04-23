@@ -1493,11 +1493,11 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
             #         label="Your preset name"
             #     )
             #     mangio_preset_save_btn = gr.Button('Save Preset', variant="primary")
+			#	  sid0 = gr.Dropdown(label="1.Choose the model.", choices=[''] + sorted(names), value=check_for_name())
 
             # Other RVC stuff
             with gr.Row():
-                #sid0 = gr.Dropdown(label="1.Choose the model.", choices=[''] + sorted(names), value=check_for_name())
-				sid0 = gr.Dropdown(label="1.Choose the model.", choices=[''] + sorted(names), value='')
+                sid0 = gr.Dropdown(label="1.Choose the model.", choices=[''] + sorted(names), value='')
                 refresh_button = gr.Button("Refresh", variant="primary")
                 if check_for_name() != '':
                     get_vc(sorted(names)[0])
