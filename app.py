@@ -1502,7 +1502,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                     get_vc(sorted(names)[0])
                 vc_transform0 = gr.Number(label="درجة الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل '\n' Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
 
-                clean_button = gr.Button(i18n("Clean"), variant="primary")
+                #clean_button = gr.Button(i18n("卸载音色省显存"), variant="primary")
                 spk_item = gr.Slider(
                     minimum=0,
                     maximum=2333,
@@ -1512,7 +1512,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                     visible=False,
                     interactive=True,
                 )
-                clean_button.click(fn=clean, inputs=[], outputs=[sid0])
+                #clean_button.click(fn=clean, inputs=[], outputs=[sid0])
                 sid0.change(
                     fn=get_vc,
                     inputs=[sid0],
