@@ -1496,33 +1496,29 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
 
             # Other RVC stuff
             with gr.Row():
-				# Add an empty option as the default
-				sid0_choices = [''] + sorted(names)
-				sid0 = gr.Dropdown(label="1.Choose the model.", choices=sid0_choices, value=check_for_name())
+                sid0 = gr.Dropdown(label="1.Choose the model.", choices=[''] + sorted(names), value=check_for_name())
+                refresh_button = gr.Button("Refresh", variant="primary")
+                if check_for_name() != '':
+                    get_vc(sorted(names)[0])
+                vc_transform0 = gr.Number(label="درجة الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل '\n' Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
 
-			refresh_button = gr.Button("Refresh", variant="primary")
-			if check_for_name() != '':
-				get_vc(sorted(names)[0])
-
-			vc_transform0 = gr.Number(label="درجة الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل '\n' Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
-
-			spk_item = gr.Slider(
-				minimum=0,
-				maximum=2333,
-				step=1,
-				label=i18n("请选择说话人id"),
-				value=0,
-				visible=False,
-				interactive=True,
-			)
-
-			sid0.change(
-				fn=get_vc,
-				inputs=[sid0],
-				outputs=[spk_item],
-			)
-
-			but0 = gr.Button("Convert", variant="primary")
+                #clean_button = gr.Button(i18n("卸载音色省显存"), variant="primary")
+                spk_item = gr.Slider(
+                    minimum=0,
+                    maximum=2333,
+                    step=1,
+                    label=i18n("请选择说话人id"),
+                    value=0,
+                    visible=False,
+                    interactive=True,
+                )
+                #clean_button.click(fn=clean, inputs=[], outputs=[sid0])
+                sid0.change(
+                    fn=get_vc,
+                    inputs=[sid0],
+                    outputs=[spk_item],
+                )
+                but0 = gr.Button("Convert", variant="primary")
             with gr.Row():
                 with gr.Column():
                     with gr.Row():
