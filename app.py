@@ -1500,14 +1500,8 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                 refresh_button = gr.Button("Refresh", variant="primary")
                 if check_for_name() != '':
                     get_vc(sorted(names)[0])
-                # vc_transform0 = gr.Number(label="درجة 1الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل \n Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
-				vc_transform0 = gr.Number(
-                    label=("درجة 1الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ "
-                           "12 من رجل الى أمرأة و-12 من أمرأة إلى رجل "
-                           "Pitch: 0 from man to man (or woman to woman); "
-                           "12 from man to woman and -12 from woman to man."),
-                    value=0
-                )
+                vc_transform0 = gr.Number(label="درجة 1الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل '\n' Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
+
                 #clean_button = gr.Button(i18n("卸载音色省显存"), variant="primary")
                 spk_item = gr.Slider(
                     minimum=0,
