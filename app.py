@@ -501,6 +501,8 @@ def change_choices():
 
 def clean():
     return {"value": "", "__type__": "update"}
+	print("clean_empty_cache")
+	del net_g, n_spk, vc, hubert_model, tgt_sr  # ,cpt
 
 
 sr_dict = {
@@ -1502,7 +1504,6 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                     get_vc(sorted(names)[0])
                 vc_transform0 = gr.Number(label="درجة الصوت: 0 من رجل إلى رجل (أو من امرأة إلى امرأة)؛ 12 من رجل الى أمرأة و-12 من أمرأة إلى رجل '\n' Pitch: 0 from man to man (or woman to woman); 12 from man to woman and -12 from woman to man.", value=0)
 
-                clean_button = gr.Button(i18n("Clean"), variant="secondary")
                 spk_item = gr.Slider(
                     minimum=0,
                     maximum=2333,
@@ -1546,6 +1547,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                                 tfs = gr.Textbox(label="Input your Text", interactive=True, value="This is a test.")
                                 tts_button = gr.Button(value="Speak")
                                 tts_button.click(fn=elevenTTS, inputs=[api_box,tfs, elevenid, lang], outputs=[record_button, input_audio0])
+						clean_button = gr.Button(i18n("Clean"), variant="primary")
                     with gr.Row():
                         with gr.Accordion('Wav2Lip', open=False, visible=False):
                             with gr.Row():
