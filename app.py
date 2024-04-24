@@ -500,9 +500,10 @@ def change_choices():
 
 
 def clean():
-    return {"value": "", "__type__": "update"}
-	print("clean_empty_cache")
+    print("clean_empty_cache")
 	del net_g, n_spk, vc, hubert_model, tgt_sr  # ,cpt
+	return {"value": "", "__type__": "update"}
+	
 
 
 sr_dict = {
