@@ -500,10 +500,11 @@ def change_choices():
 
 
 def clean():
-    print("clean_empty_cache")
-	del net_g, n_spk, vc, hubert_model, tgt_sr  # ,cpt
+    if hubert_model != None:  # 考虑到轮询, 需要加个判断看是否 sid 是由有模型切换到无模型的
+		print("clean_empty_cache")
+		del net_g, n_spk, vc, hubert_model, tgt_sr  # ,cpt
+		hubert_model = net_g = n_spk = vc = hubert_model = tgt_sr = None
 	return {"value": "", "__type__": "update"}
-	
 
 
 sr_dict = {
