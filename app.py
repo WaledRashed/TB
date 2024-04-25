@@ -1511,7 +1511,6 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                     visible=False,
                     interactive=True,
                 )
-                clean_button.click(fn=clean, inputs=[], outputs=[sid0])
                 sid0.change(
                     fn=get_vc,
                     inputs=[sid0],
@@ -1546,6 +1545,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                                 tfs = gr.Textbox(label="Input your Text", interactive=True, value="This is a test.")
                                 tts_button = gr.Button(value="Speak")
                                 tts_button.click(fn=elevenTTS, inputs=[api_box,tfs, elevenid, lang], outputs=[record_button, input_audio0])
+                        clean_button.click(fn=clean, inputs=[], outputs=[sid0])
                     with gr.Row():
                         with gr.Accordion('Wav2Lip', open=False, visible=False):
                             with gr.Row():
