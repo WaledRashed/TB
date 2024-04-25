@@ -500,11 +500,7 @@ def change_choices():
 
 
 def clean():
-    if hubert_model != None:  # 考虑到轮询, 需要加个判断看是否 sid 是由有模型切换到无模型的
-		print("clean_empty_cache")
-		del net_g, n_spk, vc, hubert_model, tgt_sr  # ,cpt
-		hubert_model = net_g = n_spk = vc = hubert_model = tgt_sr = None
-	return {"value": "", "__type__": "update"}
+    return {"value": "", "__type__": "update"}
 
 
 sr_dict = {
@@ -1540,6 +1536,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                         record_button.change(fn=save_to_wav, inputs=[record_button], outputs=[input_audio0])
                         record_button.change(fn=change_choices2, inputs=[], outputs=[input_audio0])    
                     with gr.Row():
+                        clean_button = gr.Button("Clean", variant="secondary", size='sm')
                         with gr.Accordion('Google TTS', open=False, visible=True):
                             with gr.Column():
                                 lang = gr.Radio(label='Chinese & Japanese do not work with ElevenLabs currently.',choices=['ar','en','it','es','fr','pt','zh-CN','de','hi','ja'], value='ar')
@@ -1549,7 +1546,6 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                                 tfs = gr.Textbox(label="Input your Text", interactive=True, value="This is a test.")
                                 tts_button = gr.Button(value="Speak")
                                 tts_button.click(fn=elevenTTS, inputs=[api_box,tfs, elevenid, lang], outputs=[record_button, input_audio0])
-						clean_button = gr.Button(i18n("Clean"), variant="primary")
                     with gr.Row():
                         with gr.Accordion('Wav2Lip', open=False, visible=False):
                             with gr.Row():
