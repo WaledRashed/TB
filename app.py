@@ -500,10 +500,6 @@ def change_choices():
 
 
 def clean():
-    if hubert_model != None:  # 考虑到轮询, 需要加个判断看是否 sid 是由有模型切换到无模型的
-            print("clean_empty_cache")
-            del net_g, n_spk, vc, hubert_model, tgt_sr  # ,cpt
-            hubert_model = net_g = n_spk = vc = hubert_model = tgt_sr = None
     return {"value": "", "__type__": "update"}
 
 
@@ -1549,7 +1545,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),
                                 tts_button = gr.Button(value="Speak")
                                 tts_button.click(fn=elevenTTS, inputs=[api_box,tfs, elevenid, lang], outputs=[record_button, input_audio0])
                     with gr.Row():
-                        clean_button = gr.Button("Clean", variant="secondary", size='sm')
+                        clean_button = gr.Button("Clean", variant="secondary", size='sm', visible='False')
                         clean_button.click(fn=clean, inputs=[], outputs=[sid0])
                     with gr.Row():
                         with gr.Accordion('Wav2Lip', open=False, visible=False):
