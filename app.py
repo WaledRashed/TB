@@ -1484,10 +1484,10 @@ def zip_downloader(model):
 js_func = """
 function refresh() {
     const url = new URL(window.location);
-
+	document.getElementsByTagName('body')[0].classList.add('dark'); 
+	document.body.classList.add("dark");
     if (url.searchParams.get('__theme') !== 'dark') {
-        document.body.classList.add("dark");
-		url.searchParams.set('__theme', 'dark');
+        url.searchParams.set('__theme', 'dark');
         window.location.href = url.href;
     }
 }
