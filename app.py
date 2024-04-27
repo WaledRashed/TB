@@ -1481,23 +1481,7 @@ def zip_downloader(model):
     else:
         return f'./weights/{model}.pth', "Could not find Index file."
 
-# Define custom dark theme with red and rose colors
-custom_dark_theme = gr.Theme(
-    "dark",
-    primary_hue="red",
-    secondary_hue="rose",
-    primary="rgba(255,0,0,1)",
-    secondary="rgba(255,105,180,1)",
-    light="#404040",
-    dark="#121212",
-    accent="#ff8c00",
-    font="Arial, sans-serif",
-)
-
-# Apply the custom dark theme globally
-gr.theme(custom_dark_theme)
-
-with gr.Blocks(theme=custom_dark_theme, title="BasetaTube RVC TTS") as app:
+with gr.Blocks(theme=gr.themes.Default(primary_hue="red", secondary_hue="rose"),css=".gradio-container {background-color: black}", title="BasetaTube RVC TTS") as app:
     with gr.Tabs():
         with gr.TabItem("Inference"):
             gr.HTML("<table align='center' border='0' padding='10'><tr><td><img src='/file=Btubel.png' width='300' /></td><td align='center'><center><h1 style='font-size:30px'>RVC TTS</h1><h1 style='font-size:28px'>تحويل النص الى صوت عربي من اى صوت تريده <br>أشترك فى قناة بسيطة تيوب للمزيد من فيديوهات التكنولوجيا و الذكاء الاصطناعى<br><a href='https://www.youtube.com/@basetatube/?sub_confirmation=1' target='_blank'>أشترك الأن</a></h1></center></td></tr></table>Huggingface port by Ilaria of the Rejekt Easy GUI")     
