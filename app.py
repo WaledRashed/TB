@@ -1481,8 +1481,21 @@ def zip_downloader(model):
     else:
         return f'./weights/{model}.pth', "Could not find Index file."
 
-custom_dark_theme = gr.themes.Default(primary_hue="red", secondary_hue="rose")
-custom_dark_theme.components["blocks"]["config"]["dark"] = True
+# Define custom dark theme with red and rose colors
+custom_dark_theme = gr.Theme(
+    "dark",
+    primary_hue="red",
+    secondary_hue="rose",
+    primary="rgba(255,0,0,1)",
+    secondary="rgba(255,105,180,1)",
+    light="#404040",
+    dark="#121212",
+    accent="#ff8c00",
+    font="Arial, sans-serif",
+)
+
+# Apply the custom dark theme globally
+gr.theme(custom_dark_theme)
 
 with gr.Blocks(theme=custom_dark_theme, title="BasetaTube RVC TTS") as app:
     with gr.Tabs():
